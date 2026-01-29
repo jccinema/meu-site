@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio | J.C. Oliveira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1><a href="index.html">J.C. OLIVEIRA</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bio.html">Bio</a></li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Cinema</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="bio-content">
+        <nav class="lang-toggle">
+            <img src="https://flagcdn.com/br.svg" class="flag-icon" onclick="setLang('pt')" alt="PT">
+            <img src="https://flagcdn.com/gb.svg" class="flag-icon" onclick="setLang('en')" alt="EN">
+        </nav>
+
+        <section id="bio-pt" class="bio-section active">
+            <p>Meu nome é JC Oliveira, sou editor audiovisual e realizador independente. Atualmente faço Doutorado em Cinema e Audiovisual na UFF (PPGCine-UFF)...</p>
+        </section>
+
+        <section id="bio-en" class="bio-section">
+            <p><em>My name is JC Oliveira, I am film editor and independent film director. I am currently pursuing a PhD in Cinema and Audiovisual at UFF...</em></p>
+        </section>
+
+        <footer class="footer-bio">
+            <div class="contact-links">
+                <a href="tel:+5521992731120">+55 21 99273-1120</a>
+                <a href="mailto:jc.cinema@gmail.com">jc.cinema@gmail.com</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.imdb.com/name/nm3570337/" target="_blank"><svg viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM128.1 346.4c0 14.2-11.5 25.7-25.7 25.7H74.3c-14.2 0-25.7-11.5-25.7-25.7V165.6c0-14.2 11.5-25.7 25.7-25.7h28.1c14.2 0 25.7 11.5 25.7 25.7v180.8zm83.1-180.8l23.5 91.5 23.5-91.5h33l-40.4 135.5V346.4c0 14.2-11.5 25.7-25.7 25.7h-1.6c-14.2 0-25.7-11.5-25.7-25.7V301.1l-40.4-135.5h33.8zm160.8 152.1c0 15.6-12.6 28.2-28.2 28.2H314v-90.1h30.2c15.6 0 28.2 12.6 28.2 28.2v33.7zm28.2-152.1h-84.5c-14.2 0-25.7 11.5-25.7 25.7V346.4c0 14.2 11.5 25.7 25.7 25.7h84.5c14.2 0 25.7-11.5 25.7-25.7V191.3c0-14.2-11.5-25.7-25.7-25.7z"/></svg></a>
+                <a href="https://instagram.com/jccinema" target="_blank"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></a>
+            </div>
+            <img class="bio-photo" src="https://64.media.tumblr.com/7c7311a83bca795668688d49cb19ac03/tumblr_inline_q3wpi1U8ZS1synt1r_500.jpg">
+        </footer>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.bio-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('bio-' + lang).classList.add('active');
+        }
+    </script>
+</body>
+</html>
