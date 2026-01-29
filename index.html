@@ -2,38 +2,97 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title>J.C. Oliveira | Cinema, TV, Streaming, VR</title>
-    <meta name="description" content="J.C. Oliveira - Profissional do audiovisual com foco em edição e montagem para Cinema, TV, Streaming e experiências em VR.">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>J.C. Oliveira | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <style>
-        :root { --bg: #ffffff; --text: #000000; --nav: #000000; --border: rgba(128,128,128,0.3); }
-        body.dark-mode { --bg: #000000; --text: #ffffff; --nav: #ffffff; }
-        a { text-decoration: none !important; color: inherit !important; transition: opacity 0.2s; }
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --border: rgba(128,128,128,0.2);
+        }
+
+        body.dark-mode {
+            --bg: #000000;
+            --text: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            transition: background 0.3s ease;
+            padding-bottom: 100px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
         a:hover { opacity: 0.6; }
-        body { background-color: var(--bg) !important; color: var(--text) !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0; padding: 0; text-align: center; transition: background 0.2s ease, color 0.2s ease; }
-        .main-wrapper { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .blog-title { font-size: 4.5em !important; margin: 0 0 10px 0; font-weight: 800; letter-spacing: -2px; line-height: 1.1; }
-        .description { opacity: 0.7; margin-bottom: 30px; font-size: 1.2em; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.4; }
-        nav.nav-bar { border-top: 1px solid var(--border); padding-top: 25px; margin-bottom: 60px; }
-        nav.nav-bar ul { list-style: none; padding: 0; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
-        nav.nav-bar li { margin: 5px 15px; }
-        nav.nav-bar a { color: var(--nav) !important; text-transform: uppercase; font-weight: bold; font-size: 0.95em; letter-spacing: 2px; }
-        #theme-toggle { background: none; border: none; color: var(--nav); font-size: 1.6em; cursor: pointer; padding: 0; margin-left: 10px; }
-        #posts-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; text-align: left; }
-        article.post { margin-bottom: 40px; }
-        .video-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 4px; overflow: hidden; margin-bottom: 15px; position: relative; }
-        .video-wrapper iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:none; }
-        .caption { line-height: 1.5; font-size: 0.95em; }
-        .caption strong { font-size: 1.1em; text-transform: uppercase; display: block; margin-bottom: 5px; }
-        @media (max-width: 850px) { .blog-title { font-size: 2.5em !important; } #posts-container { grid-template-columns: 1fr; } .main-wrapper { padding: 20px 15px; } nav.nav-bar li { margin: 5px 10px; } }
+
+        .main-wrapper { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+        /* HEADER */
+        header { text-align: center; margin-bottom: 80px; }
+        .blog-title { 
+            font-size: 4.5em; 
+            font-weight: 800; 
+            letter-spacing: -3px; 
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        nav.nav-bar { border-top: 1px solid var(--border); padding-top: 30px; }
+        nav.nav-bar ul { list-style: none; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        nav.nav-bar a { font-weight: bold; text-transform: uppercase; font-size: 0.85em; letter-spacing: 2px; }
+
+        #theme-toggle { background: none; border: none; cursor: pointer; color: var(--text); font-size: 1.4em; margin-left: 10px; }
+
+        /* GRID DE PORTFÓLIO */
+        #portfolio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 80px 40px; 
+            text-align: left;
+        }
+
+        article.post { width: 100%; opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        article.post.visible { opacity: 1; transform: translateY(0); }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .video-container iframe {
+            position: absolute; top:0; left:0; width:100%; height:100%; border:none;
+        }
+
+        /* TEXTO PADRÃO TUMBLR */
+        .caption { line-height: 1.6; font-size: 1em; }
+        .caption strong { font-size: 1.1em; display: block; margin-bottom: 4px; }
+
+        /* SENTINELA DA ROLAGEM */
+        #scroll-sentinel { height: 50px; margin-top: 50px; text-align: center; font-size: 2em; opacity: 0.3; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 850px) {
+            .blog-title { font-size: 2.8em; letter-spacing: -1px; }
+            #portfolio-grid { grid-template-columns: 1fr; gap: 60px; }
+            .main-wrapper { padding: 40px 15px; }
+        }
     </style>
 </head>
 <body>
+
     <div class="main-wrapper">
         <header>
             <h1 class="blog-title"><a href="index.html">J.C. OLIVEIRA</a></h1>
-            <div class="description">Editor Audiovisual | Realizador Independente</div>
             <nav class="nav-bar">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -41,100 +100,167 @@
                     <li><a href="#">TV</a></li>
                     <li><a href="#">Cinema</a></li>
                     <li><a href="https://www.imdb.com/name/nm3570337/" target="_blank">IMDb</a></li>
-                    <li><button id="theme-toggle" title="Mudar Tema">◐</button></li>
+                    <li><button id="theme-toggle">◐</button></li>
                 </ul>
             </nav>
         </header>
 
-        <section id="posts-container">
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/1085769247" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Tarefa"</strong> Cinema | Fic | 15'<br>Polka Filmes | 2025</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/841883324" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"200"</strong> 360 (VR) | Dança | 10'<br>Caos e Cinema | 2024</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/1085782229" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Angélica: 50 e Uns"</strong> Série | Globoplay / GNT<br>Conspiração Filmes | 2024</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/799581647" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Último Domingo"</strong> Ficção<br>Festival de Gramado | Festival do Rio | 2022</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/221311860" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Estados da Arte"</strong> Série documental | TV<br>Canal Curta! | 2016-2022</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/518275303" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Sintonia Espacial"</strong> Ficção / 360<br>Produção Rua Netuno | 2020</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/383593872" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Sorriso"</strong> Documentário | 10'<br>interfilm Berlin | Belize Int. Film Festival | 2019</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/495468301" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Vai que Cola"</strong> Série (8ª Temp)<br>Multishow | 2020</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/74981561" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Longe do Oeste"</strong> Documentário | 20'<br>Canal Futura | 2013</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/17247257" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"Meia-Noite Rio"</strong> Documentário | 5'<br>Melhor Doc Curta Criativo | 2010</div>
-            </article>
-
-            <article class="post">
-                <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/155175569" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="caption"><strong>"R E M"</strong> Ficção | 8'<br>Cinestud Amsterdã | 2008</div>
-            </article>
-        </section>
+        <main id="portfolio-grid"></main>
+        
+        <div id="scroll-sentinel">...</div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-            const body = document.body;
-            if (localStorage.getItem('theme') === 'dark') { $(body).addClass('dark-mode'); }
-            $('#theme-toggle').on('click', function() {
-                $(body).toggleClass('dark-mode');
-                localStorage.setItem('theme', $(body).hasClass('dark-mode') ? 'dark' : 'light');
+        // LISTA COMPLETA DE TRABALHOS (ORDEM CRONOLÓGICA INVERSA)
+        const projects = [
+            {
+                title: "“Tarefa”",
+                info: "Cinema | Fic | 15′",
+                details: "Polka Filmes",
+                year: "2025",
+                type: "vimeo",
+                id: "1085769247"
+            },
+            {
+                title: "“200”",
+                info: "360 (VR) | Dança | 10′",
+                details: "Melhor Filme Imersivo - shorTS (Trieste Int'l Short Film Festival) | Festival de Gramado 2024",
+                year: "2024",
+                type: "vimeo",
+                id: "841883324"
+            },
+            {
+                title: "“Angélica: 50 e Uns”",
+                info: "Série | Globoplay / GNT",
+                details: "Conspiração Filmes",
+                year: "2024",
+                type: "vimeo",
+                id: "1085782229"
+            },
+            {
+                title: "“Último Domingo” (“Last Sunday”)",
+                info: "Cinema | Fic | 15′",
+                details: "50º Festival de Gramado | Festival Biarritz 2022 | Festival do Rio 2022",
+                year: "2022",
+                type: "vimeo",
+                id: "799581647"
+            },
+            {
+                title: "“Estados da Arte” (“States of Art”)",
+                info: "Série documental | TV",
+                details: "Canal Curta!",
+                year: "2016-2022",
+                type: "vimeo",
+                id: "221311860"
+            },
+            {
+                title: "“Vai Que Cola”",
+                info: "Série (8ª Temp) | TV",
+                details: "Multishow",
+                year: "2020",
+                type: "youtube",
+                id: "MhLREeN2qA0" // Exemplo de ID do YouTube
+            },
+            {
+                title: "“Sintonia Espacial”",
+                info: "Ficção / 360",
+                details: "Produção Rua Netuno",
+                year: "2020",
+                type: "vimeo",
+                id: "518275303"
+            },
+            {
+                title: "“Sorriso” (“Smile”)",
+                info: "Documentário | 10′",
+                details: "35th interfilm Berlin | Melhor Curta Doc - 14th Belize Int'l Film Festival",
+                year: "2019",
+                type: "vimeo",
+                id: "383593872"
+            },
+            {
+                title: "“Longe do Oeste”",
+                info: "Documentário | 20′",
+                details: "Canal Futura",
+                year: "2013",
+                type: "vimeo",
+                id: "74981561"
+            },
+            {
+                title: "“Meia-Noite Rio”",
+                info: "Documentário | 5′",
+                details: "Melhor Doc Curta Criativo",
+                year: "2010",
+                type: "vimeo",
+                id: "17247257"
+            },
+            {
+                title: "“R E M”",
+                info: "Ficção | 8′",
+                details: "Cinestud Amsterdã",
+                year: "2008",
+                type: "vimeo",
+                id: "155175569"
+            }
+        ];
+
+        const grid = document.getElementById('portfolio-grid');
+        const sentinel = document.getElementById('scroll-sentinel');
+        let currentIndex = 0;
+        const itemsPerBatch = 4;
+
+        function createPost(project) {
+            const article = document.createElement('article');
+            article.className = 'post';
+            
+            let videoEmbed = '';
+            if (project.type === 'vimeo') {
+                videoEmbed = `<iframe src="https://player.vimeo.com/video/${project.id}" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+            } else {
+                videoEmbed = `<iframe src="https://www.youtube.com/embed/${project.id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            }
+
+            article.innerHTML = `
+                <div class="video-container">${videoEmbed}</div>
+                <div class="caption">
+                    <strong>${project.title}</strong>
+                    ${project.info}<br>
+                    ${project.details}<br>
+                    ${project.year}
+                </div>
+            `;
+            return article;
+        }
+
+        function loadMore() {
+            const nextBatch = projects.slice(currentIndex, currentIndex + itemsPerBatch);
+            nextBatch.forEach(project => {
+                const post = createPost(project);
+                grid.appendChild(post);
+                // Pequeno delay para a animação de fade-in
+                setTimeout(() => post.classList.add('visible'), 100);
             });
+            currentIndex += itemsPerBatch;
+            
+            if (currentIndex >= projects.length) {
+                sentinel.style.display = 'none';
+            }
+        }
+
+        // INTERSECTION OBSERVER PARA ROLAGEM INFINITA
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && currentIndex < projects.length) {
+                loadMore();
+            }
+        }, { threshold: 1.0 });
+
+        observer.observe(sentinel);
+
+        // DARK MODE
+        const btn = document.getElementById('theme-toggle');
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
     </script>
 </body>
