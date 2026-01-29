@@ -3,130 +3,37 @@
 <head>
     <meta charset="utf-8">
     <title>J.C. Oliveira | Cinema, TV, Streaming, VR</title>
-    
     <meta name="description" content="J.C. Oliveira - Profissional do audiovisual com foco em edição e montagem para Cinema, TV, Streaming e experiências em VR.">
-    <meta name="keywords" content="J.C. Oliveira, JC Oliveira, film editing, film editor, cinema, tv, streaming, VR">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style>
-        /* 1. VARIÁVEIS DE COR */
-        :root {
-            --bg: #ffffff;
-            --text: #000000;
-            --nav: #000000;
-            --border: rgba(128,128,128,0.3);
-        }
-
-        body.dark-mode {
-            --bg: #000000;
-            --text: #ffffff;
-            --nav: #ffffff;
-        }
-
-        /* 2. RESET BÁSICO */
-        a, a:link, a:visited, a:hover, a:active {
-            text-decoration: none !important;
-            color: inherit !important;
-            transition: opacity 0.2s;
-        }
+        :root { --bg: #ffffff; --text: #000000; --nav: #000000; --border: rgba(128,128,128,0.3); }
+        body.dark-mode { --bg: #000000; --text: #ffffff; --nav: #ffffff; }
+        a { text-decoration: none !important; color: inherit !important; transition: opacity 0.2s; }
         a:hover { opacity: 0.6; }
-
-        body { 
-            background-color: var(--bg) !important; 
-            color: var(--text) !important; 
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            margin: 0; padding: 0;
-            text-align: center;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-        
+        body { background-color: var(--bg) !important; color: var(--text) !important; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0; padding: 0; text-align: center; transition: background 0.2s ease, color 0.2s ease; }
         .main-wrapper { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        
-        /* TÍTULO E DESCRIÇÃO */
-        .blog-title { 
-            font-size: 4.5em !important; 
-            margin: 0 0 10px 0; 
-            font-weight: 800; 
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-        
-        .description { 
-            opacity: 0.7; 
-            margin-bottom: 30px; 
-            font-size: 1.2em; 
-            max-width: 600px;
-            margin-left: auto; margin-right: auto;
-            line-height: 1.4;
-        }
-
-        /* NAVEGAÇÃO */
-        nav.nav-bar { 
-            border-top: 1px solid var(--border); 
-            padding-top: 25px; 
-            margin-bottom: 60px; 
-        }
-        nav.nav-bar ul { 
-            list-style: none; padding: 0; 
-            display: flex; justify-content: center; align-items: center; flex-wrap: wrap; 
-        }
+        .blog-title { font-size: 4.5em !important; margin: 0 0 10px 0; font-weight: 800; letter-spacing: -2px; line-height: 1.1; }
+        .description { opacity: 0.7; margin-bottom: 30px; font-size: 1.2em; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.4; }
+        nav.nav-bar { border-top: 1px solid var(--border); padding-top: 25px; margin-bottom: 60px; }
+        nav.nav-bar ul { list-style: none; padding: 0; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
         nav.nav-bar li { margin: 5px 15px; }
-        nav.nav-bar a { 
-            color: var(--nav) !important; 
-            text-transform: uppercase; 
-            font-weight: bold; font-size: 0.95em; letter-spacing: 2px;
-        }
-
-        #theme-toggle {
-            background: none; border: none;
-            color: var(--nav); font-size: 1.6em;
-            cursor: pointer; padding: 0; margin-left: 10px;
-        }
-
-        /* 3. GRID DE PORTFÓLIO (2 COLUNAS) */
-        #posts-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            text-align: left;
-        }
-
+        nav.nav-bar a { color: var(--nav) !important; text-transform: uppercase; font-weight: bold; font-size: 0.95em; letter-spacing: 2px; }
+        #theme-toggle { background: none; border: none; color: var(--nav); font-size: 1.6em; cursor: pointer; padding: 0; margin-left: 10px; }
+        #posts-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; text-align: left; }
         article.post { margin-bottom: 40px; }
-        
-        .video-wrapper {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #000;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .video-wrapper iframe {
-            position: absolute; top:0; left:0; width:100%; height:100%; border:none;
-        }
-
+        .video-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 4px; overflow: hidden; margin-bottom: 15px; position: relative; }
+        .video-wrapper iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:none; }
         .caption { line-height: 1.5; font-size: 0.95em; }
         .caption strong { font-size: 1.1em; text-transform: uppercase; display: block; margin-bottom: 5px; }
-
-        /* AJUSTES PARA CELULAR */
-        @media (max-width: 850px) {
-            .blog-title { font-size: 2.5em !important; }
-            #posts-container { grid-template-columns: 1fr; }
-            .main-wrapper { padding: 20px 15px; }
-            nav.nav-bar li { margin: 5px 10px; }
-        }
+        @media (max-width: 850px) { .blog-title { font-size: 2.5em !important; } #posts-container { grid-template-columns: 1fr; } .main-wrapper { padding: 20px 15px; } nav.nav-bar li { margin: 5px 10px; } }
     </style>
 </head>
 <body>
-
     <div class="main-wrapper">
         <header>
             <h1 class="blog-title"><a href="index.html">J.C. OLIVEIRA</a></h1>
             <div class="description">Editor Audiovisual | Realizador Independente</div>
-
             <nav class="nav-bar">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -140,39 +47,90 @@
         </header>
 
         <section id="posts-container">
-            
             <article class="post">
                 <div class="video-wrapper">
                     <iframe src="https://player.vimeo.com/video/1085769247" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <div class="caption">
-                    <strong>"Tarefa"</strong>
-                    Cinema | Fic | 15'<br>
-                    Polka Filmes | 2025
-                </div>
+                <div class="caption"><strong>"Tarefa"</strong> Cinema | Fic | 15'<br>Polka Filmes | 2025</div>
             </article>
 
             <article class="post">
                 <div class="video-wrapper">
-                    <iframe src="https://player.vimeo.com/video/847124895" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/841883324" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <div class="caption">
-                    <strong>"200"</strong>
-                    360 (VR) | Fic | 10'<br>
-                    Caos e Cinema | 2024
-                </div>
+                <div class="caption"><strong>"200"</strong> 360 (VR) | Dança | 10'<br>Caos e Cinema | 2024</div>
             </article>
 
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/1085782229" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Angélica: 50 e Uns"</strong> Série | Globoplay / GNT<br>Conspiração Filmes | 2024</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/799581647" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Último Domingo"</strong> Ficção<br>Festival de Gramado | Festival do Rio | 2022</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/221311860" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Estados da Arte"</strong> Série documental | TV<br>Canal Curta! | 2016-2022</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/518275303" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Sintonia Espacial"</strong> Ficção / 360<br>Produção Rua Netuno | 2020</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/383593872" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Sorriso"</strong> Documentário | 10'<br>interfilm Berlin | Belize Int. Film Festival | 2019</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/495468301" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Vai que Cola"</strong> Série (8ª Temp)<br>Multishow | 2020</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/74981561" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Longe do Oeste"</strong> Documentário | 20'<br>Canal Futura | 2013</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/17247257" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"Meia-Noite Rio"</strong> Documentário | 5'<br>Melhor Doc Curta Criativo | 2010</div>
+            </article>
+
+            <article class="post">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/155175569" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="caption"><strong>"R E M"</strong> Ficção | 8'<br>Cinestud Amsterdã | 2008</div>
+            </article>
         </section>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // MODO ESCURO
             const body = document.body;
             if (localStorage.getItem('theme') === 'dark') { $(body).addClass('dark-mode'); }
-            
             $('#theme-toggle').on('click', function() {
                 $(body).toggleClass('dark-mode');
                 localStorage.setItem('theme', $(body).hasClass('dark-mode') ? 'dark' : 'light');
